@@ -13,19 +13,6 @@ if (isset($_SESSION['id'])) {
     exit('sessionerror');
 }
 
-// if (isset($_SESSION['lastweight'])) {
-//     $lastweight = $_SESSION['lastweight'];
-// } else {
-//     $lastweight = 0;
-//     //exit('sessionerror2');
-// }
-// if (isset($_SESSION['carolie'])) {
-//     $carolie = $_SESSION['carolie'];
-// } else {
-//     $carolie = 0;
-//     //exit('sessionerror2');
-// }
-
 //データベースに接続
 $pdo = connectToDb();
 
@@ -95,18 +82,7 @@ if ($status == false) {
     <!-- <link type="text/css" src="https://cdnjs.com/libraries/bttn.css" />
     <link type="text/css" src="bttn.min.css" /> -->
 
-    <!-- サービスワーカーの登録準備 -->
-    <!-- <script>
-        window.addEventListener('load', () => {
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register("/sw.js")
-                    .then(registration =>
-                        console.log("success,scope:", registration.scope))
-                    .catch((err) =>
-                        console.warn("failed:", err));
-            }
-        });
-    </script> -->
+
 </head>
 
 <body id="wrapper">
@@ -134,9 +110,7 @@ if ($status == false) {
             <div class="timer-a" style="color: red; font-size:2em;">0</div>kcal消費
         </div>
 
-        <!-- <div class="plus">
-            <button class="plusbtn">+</button>
-        </div> -->
+
     </div>
     <div class="plus">
         <a id="fab" href="menu2.php">
@@ -208,7 +182,7 @@ if ($status == false) {
         });
 
         $(function() {
-            $.getJSON('http://localhost/healthcare/act.php', function(data) {
+            $.getJSON('/healthcare/act.php', function(data) {
                 //console.log(data);
                 //グラフ描画
                 var ctx = document.getElementById("myPieChart")

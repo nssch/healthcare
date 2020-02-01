@@ -2,9 +2,13 @@
 //データベースに接続する関数
 function connectToDb()
 {
-    $dbn = 'mysql:dbname=healthcare;charset=utf8;port=3306;host=localhost';
-    $user =  'root';
-    $pwd = '';
+    include("settings.php");
+    $dbname = $settings['DB_NAME'];
+    $dbport = $settings['DB_PORT'];
+    $dbhost = $settings['DB_HOST'];
+    $dbn = "mysql:dbname=$dbname;charset=utf8;port=$dbport;host=$dbhost";
+    $user =  $settings["DB_USER"];
+    $pwd = $settings["DB_PASSWORD"];
 
     try {
         return new PDO($dbn, $user, $pwd);

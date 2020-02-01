@@ -4,7 +4,6 @@ session_start();
 
 //関数ファイルの読み込み。ログイン状態の確認
 include('functions.php');
-checkSessionid();
 
 //データベース接続、送信データの受け取り
 $pdo = connectToDb();
@@ -22,7 +21,6 @@ $result = $stmt->execute();
 if ($result == false) {
     showSqlErrorMsg($stmt);
 }
-
 //実行結果のデータを取得
 $val = $stmt->fetch();
 
