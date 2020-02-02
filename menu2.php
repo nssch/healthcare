@@ -28,9 +28,9 @@ if ($result == false) {
         $view .= '<input id="' . $result['id'] . '" class="radio-button" type="radio" name="menu" value="' . $result['id'] . '" data-message="' . $result['description'] . '" />';
         $view .= '<div class="radio-tile">';
         $view .= '<div class="icon walk-icon">';
-        $view .= '<i class="fas fa-burn fa-4x"></i>';
+        $view .= '<i class="fas fa-burn fa-2x"></i>';
         $view .= '</div>';
-        $view .= '<label for="swim" class="radio-tile-label">' . $result['mets'] . '</label>';
+        $view .= '<label for="swim" class="radio-tile-label">' . $result['time']  . '分' . '<br>'  . '✖' . '<br>' . $result['menu_name'] . '</label>';
         $view .= '</div>';
         $view .= '</div>';
     }
@@ -60,11 +60,16 @@ if ($result == false) {
     </header>
 
     <div class="container">
+        <div class="info">
+            <i class="fas fa-hand-pointer fa-2x"></i>
+            <div>できそうなメニューを<br>選んでください</div>
+        </div>
         <form action="menu_insert.php" method="POST" class="radio-tile-group">
             <?= $view ?>
 
             <div class="menu_btn">
-                <button class="mbtn">習慣にする</button>
+                <p class="description" style="background-color: white;font-size:1.5em;margin:0;"></p>
+                <button class="mbtn">決定</button>
             </div>
 
         </form>
@@ -89,7 +94,18 @@ if ($result == false) {
 
         //radioボタン選択したとき
         function consoleMessage(elm) {
-            console.log(elm.getAttribute("data-message"))
+            elm.getAttribute("data-message")
+            var titleArea = document.querySelector("#selected_title")
+            if (titleArea === null) {
+                titleArea = document.createElement("div")
+                titleArea.id = "selected_title"
+                var menu_btn = document.querySelector(".description")
+                titleArea.innerText = elm.getAttribute("data-message")
+                menu_btn.appendChild(titleArea)
+            } else {
+                titleArea.innerText = elm.getAttribute("data-message")
+            }
+
         }
         document.body.addEventListener('click', function(event) {
             if (event.srcElement.className == 'radio-button') {

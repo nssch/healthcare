@@ -31,8 +31,8 @@ checkSessionid();
 
     <div class="container2">
         <form action="weight_insert.php" method="POST">
-            <input type="number" name="weight" id="weight">
-            <button type="submit">記録</button>
+            <input type="number" name="weight" id="weight">Kg
+            <button type="submit" class="w_btn">記録</button>
         </form>
 
         <div>
