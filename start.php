@@ -31,7 +31,10 @@ checkSessionid();
             <img src="img/4438.jpg">
             <p class="detail">Ｅｘ(エクササイズ)とは身体活動の量のこと。<br>
                 活動強度×時間でもとめます<br>
-                １Ｅｘの活動であなたの体重×1.05kcal消費できます</p>
+                １Ｅｘの活動で<br>あなたの体重×1.05kcal消費できます</p>
+            <div style="text-align: right;">
+                <i class="far fa-hand-point-right"></i>スワイプして次へ
+            </div>
         </div>
 
         <div>
@@ -40,10 +43,18 @@ checkSessionid();
                 80×1.05=84kcal/日 消費できます。<br>
                 約90日継続すると約7500kcal消費！<br>
                 これは脂肪約１kg燃焼するのに必要なエネルギーに相当します</p>
+            <div style="text-align: right;">
+                <i class="far fa-hand-point-right"></i>スワイプして次へ
+            </div>
         </div>
         <div>
             <img src="img/10249.jpg">
-            <p class="detail">忙しい毎日に取り入れられそうな１Ｅｘの活動を継続することからスタート</p>
+            <p class="detail">忙しい毎日に取り入れられそうな１Ｅｘの活動を継続することからスタート<br>
+                <br>
+                達成できたときはＤＯＮＥボタンで記録をつけていきましょう</p>
+            <div style="text-align: right;">
+                <i class="far fa-hand-point-right"></i>スワイプして次へ
+            </div>
         </div>
         <div>
             <img src="img/60545.jpg">

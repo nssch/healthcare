@@ -49,17 +49,23 @@ if ($res == false) {
 }
 
 //選択したメニューを表示する
-$sql3 = 'SELECT description FROM mets_table INNER JOIN user_table ON mets_table.id = user_table.mets_id WHERE user_table.id=:id';
+//$sql3 = 'SELECT description FROM mets_table INNER JOIN user_table ON mets_table.id = user_table.mets_id WHERE user_table.id=:id';
+$sql3 = 'SELECT time,menu_name  FROM mets_table INNER JOIN user_table ON mets_table.id = user_table.mets_id WHERE user_table.id=:id';
 $st = $pdo->prepare($sql3);
 $st->bindValue(':id', $user_id, PDO::PARAM_INT);
 $status = $st->execute();
+
+$menu = '';
 if ($status == false) {
     //SQL実行時にエラーがある場合
     $error = $st->errorInfo();
     exit('sqlError:' . $error[2]);
 } else {
     while ($status = $st->fetch(PDO::FETCH_ASSOC)) {
-        $menu = $status['description'];
+        //$menu = $status['description'];
+        $menu .= '<div>';
+        $menu .= '<h2>' . $status['time'] . '分✖' . $status['menu_name'] . '</h2>';
+        $menu .= '</div>';
     }
 }
 
@@ -93,7 +99,7 @@ if ($status == false) {
     <div>
         <div class="textarea">
             <div>
-                <h2><?= $menu ?></h2>
+                <?= $menu ?>
 
             </div>
 
@@ -107,7 +113,7 @@ if ($status == false) {
             <canvas id="myPieChart" width="250" height="250"></canvas>
 
 
-            <div class="timer-a" style="color: red; font-size:2em;">0</div>kcal消費
+            <div><span class="timer-a" style="color: red; font-size:2em;">0</span>kcal消費</div>
         </div>
 
 
@@ -203,6 +209,7 @@ if ($status == false) {
                         cutoutPercentage: 90,
                         // circumference: 1 * Math.PI,
                         // rotation: 1 * Math.PI,
+                        responsive: false,
 
                         elements: {
                             center: {

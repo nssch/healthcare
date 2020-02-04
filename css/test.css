@@ -39,7 +39,7 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px;
+    margin: 25px;
 }
 /* .plus{
     display: flex;
@@ -401,7 +401,7 @@ h1{
     font-size: 1.5em;
     border: 1px solid black;
     width: 200px;
-    margin: 10px;
+    margin: 10px 0px;
 }
 .w_btn{
     padding: 5px;
